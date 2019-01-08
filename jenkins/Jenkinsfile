@@ -8,8 +8,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+              def userInput = input 'Continue the pipeline?'
+              echo "Hello: "+ userInput
                 sh 'mvn -B -DskipTests clean package'
             }
+
+
         }
         stage('Test') {
             steps {
